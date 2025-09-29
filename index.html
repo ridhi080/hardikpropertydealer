@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardik Property Dealer - Your Trusted Property Partner in Delhi NCR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #3b82f6;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .contact-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .contact-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 75px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: #f9fafb;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #111827;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: #111827;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #111827;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #f9fafb;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            color: white;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-image h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .team-member h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .team-member p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        /* Properties Section */
+        .properties {
+            padding: 6rem 0;
+            background: #f9fafb;
+        }
+
+        .property-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .property-type-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .property-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .property-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .residential-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .commercial-bg {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .industrial-bg {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .property-info {
+            padding: 2rem;
+        }
+
+        .property-info h3 {
+            color: #111827;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .property-info p {
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form h3 {
+            color: #111827;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .contact-form button {
+            background: #3b82f6;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            color: #111827;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .contact-detail {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+
+        .contact-text h4 {
+            color: #111827;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-text p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .phone-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            color: #9ca3af;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Hardik <span>Property Dealer</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="contact-btn" onclick="document.getElementById('contact').scrollIntoView()">Get in Touch</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hardik Property Dealer</h1>
+                <p class="tagline">Your Trusted Property Partner in Delhi NCR</p>
+                <p class="subtitle">Deals in All Kinds of Residential, Industrial and Commercial Property</p>
+                <div class="cta-buttons">
+                    <a href="#properties" class="btn btn-primary">View Properties</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive property solutions across Delhi NCR</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Property Sale</h3>
+                    <p>Expert assistance in selling residential, commercial, and industrial properties at competitive market rates with complete documentation support.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Property Purchase</h3>
+                    <p>Find your ideal property with our extensive network and deep knowledge of the Delhi NCR real estate market.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3>Rental Services</h3>
+                    <p>Complete rental solutions for residential and commercial properties with verified tenants and hassle-free processes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Properties</h3>
+                    <p>Specialized services for office spaces, retail outlets, showrooms, and commercial property investments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏭</div>
+                    <h3>Industrial Properties</h3>
+                    <p>Expert guidance for industrial plots, warehouses, factories, and manufacturing units across NCR.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Commission Basis</h3>
+                    <p>Transparent dealings with competitive commission rates. No hidden charges with complete legal documentation support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Hardik Property Dealer</h2>
+                    <p>With 3 years of dedicated experience in the Delhi NCR real estate market, Hardik Property Dealer has established itself as a trusted name in property dealings.</p>
+                    <p>Located in Gandhi Nagar, Delhi-31, we specialize in all types of property transactions including residential, commercial, and industrial properties across the Delhi NCR region.</p>
+                    <p>Our commitment to transparent dealings, competitive commission rates, and customer satisfaction has helped us build long-lasting relationships with our clients.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Transparent Dealings</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Delhi NCR</div>
+                            <div class="stat-label">Service Area</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Available Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <h3>Our Team</h3>
+                    <div class="team-member">
+                        <h4>Bahadur Singh</h4>
+                        <p>📞 9873074182, 9873064182</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Prem Singh</h4>
+                        <p>📞 8586867496</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Kirte Ram</h4>
+                        <p>📞 9560912298</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties" id="properties">
+        <div class="container">
+            <h2 class="section-title">Property Types We Deal In</h2>
+            <p class="section-subtitle">Comprehensive coverage across all property categories</p>
+            <div class="property-type-grid">
+                <div class="property-type-card">
+                    <div class="property-image residential-bg">🏘️ RESIDENTIAL</div>
+                    <div class="property-info">
+                        <h3>Residential Properties</h3>
+                        <p>✓ Independent Houses & Villas</p>
+                        <p>✓ Apartments & Flats</p>
+                        <p>✓ Builder Floors</p>
+                        <p>✓ Residential Plots</p>
+                        <p>✓ Penthouses</p>
+                    </div>
+                </div>
+                <div class="property-type-card">
+                    <div class="property-image commercial-bg">🏢 COMMERCIAL</div>
+                    <div class="property-info">
+                        <h3>Commercial Properties</h3>
+                        <p>✓ Office Spaces</p>
+                        <p>✓ Retail Shops & Showrooms</p>
+                        <p>✓ Commercial Plots</p>
+                        <p>✓ Food Courts & Restaurants</p>
+                        <p>✓ Business Centers</p>
+                    </div>
+                </div>
+                <div class="property-type-card">
+                    <div class="property-image industrial-bg">🏭 INDUSTRIAL</div>
+                    <div class="property-info">
+                        <h3>Industrial Properties</h3>
+                        <p>✓ Industrial Plots & Land</p>
+                        <p>✓ Warehouses & Godowns</p>
+                        <p>✓ Manufacturing Units</p>
+                        <p>✓ Factory Buildings</p>
+                        <p>✓ Cold Storage Facilities</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-section">
+                <h3>Looking for a Property?</h3>
+                <p>Contact us today for the latest property listings and best deals in Delhi NCR</p>
+                <a href="#contact" class="btn btn-primary">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">👤</div>
+                        <div class="contact-text">
+                            <h4>Bahadur Singh</h4>
+                            <div class="phone-numbers">
+                                <p>📞 9873074182</p>
+                                <p>📞 9873064182</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">👤</div>
+                        <div class="contact-text">
+                            <h4>Prem Singh</h4>
+                            <p>📞 8586867496</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">👤</div>
+                        <div class="contact-text">
+                            <h4>Kirte Ram</h4>
+                            <p>📞 9560912298</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>officialbahadursingh@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Office Address</h4>
+                            <p>IX/5930, Shivaji Gali, Subhash Mohalla,<br>Gandhi Nagar, Delhi-31</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-text">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <h3>Send Your Query</h3>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Your Phone Number" required>
+                    <select required>
+                        <option value="">Select Property Type</option>
+                        <option>Residential Property</option>
+                        <option>Commercial Property</option>
+                        <option>Industrial Property</option>
+                    </select>
+                    <select required>
+                        <option value="">I'm looking to</option>
+                        <option>Buy a Property</option>
+                        <option>Sell a Property</option>
+                        <option>Rent a Property</option>
+                        <option>Get Property Consultation</option>
+                    </select>
+                    <textarea placeholder="Tell us about your requirements..." rows="4"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>HARDIK PROPERTY DEALER</strong></p>
+            <p>IX/5930, Shivaji Gali, Subhash Mohalla, Gandhi Nagar, Delhi-31</p>
+            <p>Deals in: Sale • Purchase • Renting (On Commission Basis)</p>
+            <p>&copy; 2025 Hardik Property Dealer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your inquiry! We will contact you within 24 hours.\n\nYou can also call us directly:\nBahadur Singh: 9873074182\nPrem Singh: 8586867496\nKirte Ram: 9560912298');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
